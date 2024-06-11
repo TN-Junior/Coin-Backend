@@ -11,32 +11,35 @@ import java.util.UUID;
 
 @Service
 public class UserService {
-    private final UserRepository UserRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public UserService(UserRepository UserRepository) {
-        this.UserRepository = UserRepository;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
-    public User createUser(User User) {
-        User newUser = UserRepository.save(User);
-        return newUser;
+    public User createUser(User user) {
+        return userRepository.save(user);
     }
 
     public List<User> retrieveUsers() {
-        return UserRepository.findAll();
+        return userRepository.findAll();
     }
 
     public Optional<User> retrieveUserById(UUID id) {
-        return UserRepository.findById(id);
+        return userRepository.findById(id);
     }
 
-    public User updateUser(User User) {
-        return UserRepository.save(User);
+    public User updateUser(User user) {
+        return userRepository.save(user);
     }
 
     public void deleteUser(UUID id) {
-        UserRepository.deleteById(id);
+        userRepository.deleteById(id);
     }
 
+    public User authenticateUser(String email, String password) {
+        Optional<User> user = userRepository.findByEmailAndPassword(email, password);
+        return user.orElse(null); // Retorna null se o usuário não for encontrado
+    }
 }
