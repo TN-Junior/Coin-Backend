@@ -1,0 +1,20 @@
+package com.example.coin.Model;
+
+import jakarta.persistence.*;
+
+@Entity
+public class PlanejamentoFinanceiro {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idPlanejamento;
+
+    private Localdate dataInicio;
+    private Localdate dataTermino;
+    private Double orcamentoTotal;
+
+
+
+    private int idEmpresa;
+
+    private int idUsuarioResponsavel
