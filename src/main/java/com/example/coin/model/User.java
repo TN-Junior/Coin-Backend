@@ -1,30 +1,37 @@
 package com.example.coin.model;
 
 import jakarta.persistence.*;
-import java.util.UUID;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
 
-    @Column(nullable = false)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotBlank
+    @Size(min = 2, max = 50)
     private String name;
 
-    @Column(nullable = false)
+    @NotBlank
+    @Email
+    @Column(unique = true)
     private String email;
 
-    @Column(nullable = false)
+    @NotBlank
+    @Size(min = 6)
     private String password;
 
-    
-    public UUID getId() {
+    // Getters and Setters
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
