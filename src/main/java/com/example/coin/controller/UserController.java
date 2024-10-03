@@ -1,7 +1,6 @@
 package com.example.coin.controller;
 
 
-
 import com.example.coin.model.User;
 import com.example.coin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/auth")
+@CrossOrigin(origins = "http://localhost:5173") // Permitir requisições do frontend
 public class UserController {
+
     @Autowired
     private UserService userService;
 
@@ -33,5 +34,4 @@ public class UserController {
                 .orElseGet(() -> ResponseEntity.status(401).body("Credenciais inválidas"));
     }
 }
-
 

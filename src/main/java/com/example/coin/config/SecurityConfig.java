@@ -21,7 +21,7 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable()) // Desabilitar CSRF conforme necessário
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/contas").permitAll() // Permitir acesso público ao endpoint
+                        .requestMatchers("/login", "/signup", "/api/contas").permitAll() // Permitir acesso público ao endpoint
                         .anyRequest().authenticated() // Requer autenticação para outras requisições
                 )
                 .cors(cors -> {}); // Habilitar suporte a CORS

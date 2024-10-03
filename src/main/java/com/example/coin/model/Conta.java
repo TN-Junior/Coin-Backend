@@ -11,6 +11,7 @@ public class Conta {
 
     private String conta;
     private String status;
+    private String categoria;
     private double valor;
     private LocalDate vencimento;
 
@@ -37,6 +38,13 @@ public class Conta {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public double getValor() {
