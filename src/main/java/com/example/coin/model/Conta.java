@@ -1,40 +1,28 @@
 package com.example.coin.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Conta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String conta;
-
-    @Column(nullable = false)
     private String status;
-
-    @Column(nullable = false)
     private String categoria;
-
-    @Column(nullable = false)
     private Double valor;
 
-    @Column(nullable = false)
-    private LocalDate vencimento;
-
-    @Column(nullable = false)
-    private LocalDate dataCadastro;
-
-    private LocalDate dataPagamento;
-
-    // Getters e Setters
     public Long getId() {
         return id;
     }
@@ -83,19 +71,18 @@ public class Conta {
         this.vencimento = vencimento;
     }
 
-    public LocalDate getDataCadastro() {
-        return dataCadastro;
+    public LocalDate getPagamento() {
+        return pagamento;
     }
 
-    public void setDataCadastro(LocalDate dataCadastro) {
-        this.dataCadastro = dataCadastro;
+    public void setPagamento(LocalDate pagamento) {
+        this.pagamento = pagamento;
     }
 
-    public LocalDate getDataPagamento() {
-        return dataPagamento;
-    }
+    @Column(name = "vencimento")
+    private LocalDate vencimento;
 
-    public void setDataPagamento(LocalDate dataPagamento) {
-        this.dataPagamento = dataPagamento;
-    }
+    @Column(name = "pagamento")
+    private LocalDate pagamento;
 }
+
