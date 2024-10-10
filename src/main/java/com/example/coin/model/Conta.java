@@ -1,11 +1,11 @@
 package com.example.coin.model;
 
-
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -22,6 +22,9 @@ public class Conta {
     private String status;
     private String categoria;
     private Double valor;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate vencimento;
 
     public Long getId() {
         return id;
@@ -79,10 +82,6 @@ public class Conta {
         this.pagamento = pagamento;
     }
 
-    @Column(name = "vencimento")
-    private LocalDate vencimento;
-
-    @Column(name = "pagamento")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate pagamento;
 }
-

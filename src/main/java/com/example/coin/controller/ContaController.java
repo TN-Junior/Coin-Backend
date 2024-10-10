@@ -1,6 +1,5 @@
 package com.example.coin.controller;
 
-
 import com.example.coin.model.Conta;
 import com.example.coin.service.ContaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/contas")
-@CrossOrigin(origins = "http://localhost:3000")  // Permite o acesso do front-end React
+@CrossOrigin(origins = "http://localhost:5173")  // Permite o acesso do front-end React
 public class ContaController {
 
     @Autowired
@@ -34,8 +33,13 @@ public class ContaController {
 
     @PutMapping("/{id}")
     public Conta updateConta(@PathVariable Long id, @RequestBody Conta conta) {
-        conta.setId(id);
-        return contaService.saveConta(conta);
+        Optional<Conta> existingConta = contaService.getContaById(id);
+        if (existingConta.isPresent()) {
+            conta.setId(id);
+            return contaService.saveConta(conta);
+        } else {
+            throw new RuntimeException("Conta com o ID " + id + " não encontrada.");
+        }
     }
 
     @DeleteMapping("/{id}")
@@ -43,10 +47,3 @@ public class ContaController {
         contaService.deleteConta(id);
     }
 }
-
-
-
-
-
-
-
