@@ -6,11 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 @RestController
-@RequestMapping("empresa")
+@RequestMapping("/api/empresas")
+@CrossOrigin(origins = "*")
 public class EmpresaController {
 
+    @Autowired
+    private EmpresaService empresaService;
+
+    @PostMapping
+    public Empresa criarEmpresa(@RequestBody Empresa empresa) {
+        return empresaService.salvarEmpresa(empresa);
+    }
+
+    @GetMapping
+    public List<Empresa> listarEmpresas() {
+        return empresaService.listarEmpresas();
+    }
 }
