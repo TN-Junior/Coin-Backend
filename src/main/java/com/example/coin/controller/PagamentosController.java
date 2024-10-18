@@ -3,6 +3,7 @@ package com.example.coin.controller;
 import com.example.coin.model.Pagamentos;
 import com.example.coin.service.PagamentosService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,5 +29,23 @@ public class PagamentosController {
     @PostMapping
     public Pagamentos addPagamento(@RequestBody Pagamentos pagamento) {
         return pagamentosService.savePagamento(pagamento);
+    }
+    @DeleteMapping("/{id}")
+    public void deleteConta(@PathVariable Long id) {
+        pagamentosService.deleteConta(id);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Pagamentos> updatePagamento(@PathVariable Long id, @RequestBody Pagamentos pagamentoAtualizado) {
+        Pagamentos pagamentoExistente = pagamentosService.findById(id);
+        if (pagamentoExistente == null) {
+            return ResponseEntity.notFound().build();
+        }
+        pagamentoExistente.setDescricao(pagamentoAtualizado.getDescricao());
+        pagamentoExistente.setValor(pagamentoAtualizado.getValor());
+        pagamentoExistente.setData(pagamentoAtualizado.getData());
+
+        Pagamentos pagamentoSalvo = pagamentosService.save(pagamentoExistente);
+        return ResponseEntity.ok(pagamentoSalvo);
     }
 }

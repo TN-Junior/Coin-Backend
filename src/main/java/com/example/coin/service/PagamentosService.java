@@ -27,4 +27,15 @@ public class PagamentosService {
     public Pagamentos savePagamento(Pagamentos pagamento) {
         return pagamentosRepository.save(pagamento);
     }
+    public void deleteConta(Long id) {
+        pagamentosRepository.deleteById(id);
+    }
+
+    public Pagamentos findById(Long id) {
+        return pagamentosRepository.findById(id).orElse(null);
+    }
+
+    public Pagamentos save(Pagamentos pagamento) {
+        return pagamentosRepository.save(pagamento);
+    }
 }
