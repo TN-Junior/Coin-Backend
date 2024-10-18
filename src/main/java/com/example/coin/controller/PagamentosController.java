@@ -9,12 +9,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/pagamentos")
-@CrossOrigin(origins = "*") // Permite o CORS para o front-end
+@CrossOrigin(origins = "http://localhost:5173") // Permite o CORS para o front-end
 public class PagamentosController {
 
     @Autowired
     private PagamentosService pagamentosService;
-    
+
     @GetMapping
     public List<Pagamentos> getAllPagamentos() {
         return pagamentosService.getAllPagamentos();
