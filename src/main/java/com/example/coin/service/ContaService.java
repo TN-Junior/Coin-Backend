@@ -34,6 +34,9 @@ public class ContaService {
     public void deleteConta(Long id) {
         contaRepository.deleteById(id);
     }
+    public List<Conta> getContasByCategoria(String categoria) {
+        return contaRepository.findByCategoria(categoria);
+    }
 }
 
 

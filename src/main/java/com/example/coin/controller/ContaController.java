@@ -15,6 +15,16 @@ public class ContaController {
 
     @Autowired
     private ContaService contaService;
+    @GetMapping("/receitas")
+    public List<Conta> getReceitas() {
+        return contaService.getContasByCategoria("Receitas");
+    }
+
+    // Endpoint para buscar despesas
+    @GetMapping("/despesas")
+    public List<Conta> getDespesas() {
+        return contaService.getContasByCategoria("Despesas");
+    }
 
     @GetMapping
     public List<Conta> getAllContas() {
