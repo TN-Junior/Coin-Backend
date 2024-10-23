@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmpresaService {
@@ -13,11 +14,19 @@ public class EmpresaService {
     @Autowired
     private EmpresaRepository empresaRepository;
 
-    public Empresa salvarEmpresa(Empresa empresa) {
+    public List<Empresa> getAllEmpresas() {
+        return empresaRepository.findAll();
+    }
+
+    public Optional<Empresa> getEmpresaById(Long id) {
+        return empresaRepository.findById(id);
+    }
+
+    public Empresa saveEmpresa(Empresa empresa) {
         return empresaRepository.save(empresa);
     }
 
-    public List<Empresa> listarEmpresas() {
-        return empresaRepository.findAll();
+    public void deleteEmpresa(Long id) {
+        empresaRepository.deleteById(id);
     }
 }
