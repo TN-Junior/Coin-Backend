@@ -16,6 +16,7 @@ public class WebConfig {
         config.setAllowCredentials(true);
         config.addAllowedOrigin("http://localhost:3000");
         config.addAllowedOrigin("https://coin-pa.vercel.app/");
+        config.addAllowedOrigin("https://web-coin-railway-git-main-tarynascimentos-projects.vercel.app/");
         config.addAllowedOrigin("http://localhost:5173");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
