@@ -14,7 +14,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**")
-                        .allowedOrigins("http://localhost:5173", "http://localhost:3000", "https://coin-pa.vercel.app/", "https://web-coin-railway-git-main-tarynascimentos-projects.vercel.app/")
+                        .allowedOrigins("http://localhost:5173", "http://localhost:3000", "https://coin-pa.vercel.app/", "https://web-coin-railway-git-main-tarynascimentos-projects.vercel.app/", "https://coin-frontend2-0.vercel.app")
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
                         .allowCredentials(true);
             }
