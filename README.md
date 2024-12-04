@@ -17,4 +17,4 @@ Este projeto utiliza Java, Spring e Docker para o funcionamento de métodos CRUD
 
 1. Clone este repositório:  
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/TN-Junior/Coin-Backend.git
