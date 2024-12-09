@@ -19,7 +19,7 @@ public class WebConfig {
         config.addAllowedOrigin("https://web-coin-railway-git-main-tarynascimentos-projects.vercel.app/");
         config.addAllowedOrigin("http://localhost:5173");
         config.addAllowedOrigin("https://coin-frontend2-0.vercel.app");
-        config.addAllowedOrigin("https://coinfrontend.vercel.app/dashboard");
+        config.addAllowedOrigin("https://coinfrontend.vercel.app");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);
