@@ -11,7 +11,7 @@ Bem-vindo ao meu projeto! Aqui estão algumas das tecnologias utilizadas:
 
 ## Sobre
 
-Este projeto utiliza Java, Spring e Docker para o funcionamento de métodos CRUD das Receitas e Despesas de seus usuários, a ideia constitui-se em construir uma aplicação simples, moderna e escalável. 🚀
+Este projeto utiliza Java, Spring e Docker para o funcionamento de métodos CRUD para dados de Receitas e Despesas de seus usuários, a ideia constitui-se em construir uma aplicação simples, moderna e escalável. 🚀
 
 ### Instalação
 
